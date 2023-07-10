@@ -25,11 +25,12 @@ app.get("/", (request, response) => {
 })
 
 app.post("/add", (req, response) => {
-    var query = "INSERT INTO book_tb (b_name, author, book_type, price, published_date, language) values(?, ?, ?, ? ,'?', ?)"
+    var query = "INSERT INTO book_tb (b_name, author, book_type, price, published_date, language) values(?, ?, ?, ? ,?, ?)"
     con.query(query,
         [req.body['b_name'], req.body['author'],req.body['book_type'],req.body['price'],req.body['published_date'],req.body['language']], 
         (err, result)=>{
         if(err){
+            
             response.send("Error");
         }else{
             response.send(JSON.stringify(result));
@@ -38,9 +39,9 @@ app.post("/add", (req, response) => {
 })
 
 app.put("/edit", (req, response) => {
-    var query = "UPDATE book_tb SET price = ?, language = ?)"
+    var query = "UPDATE book_tb SET price = ?, language = ? WHERE id = ?"
     con.query(query,
-        [req.body['price'], req.body['language']], 
+        [req.body['price'], req.body['language'], req.body["id"]], 
         (err, result)=>{
         if(err){
             response.send("Error");
