@@ -30,7 +30,7 @@ app.post("/add", (req, response) => {
         [req.body['b_name'], req.body['author'],req.body['book_type'],req.body['price'],req.body['published_date'],req.body['language']], 
         (err, result)=>{
         if(err){
-            
+            console.log(err);
             response.send("Error");
         }else{
             response.send(JSON.stringify(result));
@@ -44,6 +44,7 @@ app.put("/edit", (req, response) => {
         [req.body['price'], req.body['language'], req.body["id"]], 
         (err, result)=>{
         if(err){
+            console.log(err);
             response.send("Error");
         }else{
             response.send(JSON.stringify(result));
