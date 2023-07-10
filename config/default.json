@@ -1,0 +1,9 @@
+{
+    "port":4010,
+    "connection":{
+        "host":"172.17.0.2",
+        "user":"lab",
+        "password":"lab",
+        "database":"labExam"
+    }
+}
